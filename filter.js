@@ -19,15 +19,11 @@ Vue.createApp({
     },
     computed:{
         filterRange(){
-            return this.courses.forEach(el => {
+            this.courses.forEach(el => {
                 if (el.prices[0] === null)   el.prices[0] = 0;
                 if (el.prices[1] === null)   el.prices[1] = Infinity;
             });
-
-            /*       if (this.courses[i].prices[0] === null) this.courses[i].prices[0] = 0;
-                if (this.courses[i].prices[1] === null) this.courses[i].prices[1] = Infinity;
-            }
-            return courses;*/
+            return this.courses;
         }
     },
     methods:{
@@ -55,20 +51,17 @@ Vue.createApp({
             }
             return this.requiredRange;
         },
-
         sortLowToHigh() {
             this.courses.sort((a,b)=>{
                 if (a.prices[0] - b.prices[0] === 0) return b.prices[1] - a.prices[1];
-                return a.prices[0] - b.prices[0];
-                }
-            )
+                    return a.prices[0] - b.prices[0];
+                })
         },
          sortHighToLow() {
             this.courses.sort((a,b) => {
                 if (b.prices[0] - a.prices[0] === 0) return a.prices[1] - b.prices[1];
-                return b.prices[0] - a.prices[0];
-                }
-            )
+                    return b.prices[0] - a.prices[0];
+                })
         }
     }
 }).mount("#cards");

@@ -1,0 +1,51 @@
+body{
+    margin: 0 auto;
+}
+.allCourses,
+.filteredCourses{
+    text-align: center;
+}
+h1{
+    color: #6a02ce;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}
+button{
+    height: 50px;
+    width: 30%;
+    background-color: rgb(132, 8, 252);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+}
+.card{
+    border-radius: 10px;
+    filter: drop-shadow(0 4px 4px rgb(0, 0, 0, 0.4));
+    margin: 10px 0;
+    padding: 5px 0;
+}
+.card:nth-child(odd){
+    background-color: rgba(204, 153, 254, 0.5);
+}
+.card:nth-child(even){
+    background-color: rgba(164, 72, 253, 0.5);
+}
+@media (max-width: 767px){
+    #cards{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 768px){
+    #cards{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}

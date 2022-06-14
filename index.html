@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>Courses</title>
     <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div id="cards">
     <div class="allCourses">
+        <h1>Сортировка</h1>
         <div class="buttons">
             <button @click="sortLowToHigh"> Отсортировать по возрастанию</button>
             <button @click="sortHighToLow"> Отсортировать по убыванию</button>
@@ -15,11 +18,13 @@
         <div class="cards">
             <div class="card" v-for="course of filterRange">
                 <h2>{{course.name}}</h2>
-                <span>{{course.prices}}</span>
+                <span> От {{course.prices[0]}}</span>
+                <span v-if="course.prices[1] !== Infinity "> До {{course.prices[1]}}</span>
             </div>
         </div>
     </div>
    <div class="filteredCourses">
+       <h1>Фильтры</h1>
        <div class="buttons">
            <button @click="filterFrom0To200"> До 200</button>
            <button @click="filterFrom100To350"> От 100 до 350</button>
@@ -28,7 +33,8 @@
        <div class="cards">
            <div class="card" v-for="course of requiredRange">
                <h2>{{course.name}}</h2>
-               <span>{{course.prices}}</span>
+               <span v-if="typeof course.prices[0] === 'number' "> От {{course.prices[0]}}</span>
+               <span v-if="course.prices[1] !== Infinity "> До {{course.prices[1]}}</span>
            </div>
        </div>
    </div>
