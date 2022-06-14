@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+<div id="cards">
+    <div class="allCourses">
+        <div class="buttons">
+            <button @click="sortLowToHigh"> Отсортировать по возрастанию</button>
+            <button @click="sortHighToLow"> Отсортировать по убыванию</button>
+        </div>
+        <div class="cards">
+            <div class="card" v-for="course of filterRange">
+                <h2>{{course.name}}</h2>
+                <span>{{course.prices}}</span>
+            </div>
+        </div>
+    </div>
+   <div class="filteredCourses">
+       <div class="buttons">
+           <button @click="filterFrom0To200"> До 200</button>
+           <button @click="filterFrom100To350"> От 100 до 350</button>
+           <button @click="filterFrom200"> От 200</button>
+       </div>
+       <div class="cards">
+           <div class="card" v-for="course of requiredRange">
+               <h2>{{course.name}}</h2>
+               <span>{{course.prices}}</span>
+           </div>
+       </div>
+   </div>
+</div>
+<script src="filter.js"></script>
+</body>
+</html>
